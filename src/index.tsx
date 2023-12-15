@@ -1,13 +1,21 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React from "react";
+import { StatusBar } from "expo-status-bar";
 
-import { Background } from './style';
+import { AudioProvider } from "./hooks/audio";
 
-export default function Main() {
-    return(
-        <>
-            <StatusBar style="light" />
-            <Background />
-        </>
-    );
-}
+import Player from "./pages/Player";
+
+import { Background } from "./style";
+
+const Main: React.FC = () => {
+  return (
+    <AudioProvider>
+      <StatusBar style="light" />
+      <Background>
+        <Player />
+      </Background>
+    </AudioProvider>
+  );
+};
+
+export default Main;
